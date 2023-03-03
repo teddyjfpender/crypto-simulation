@@ -1,0 +1,20 @@
+[package]
+name = "crypto-simulation"
+version = "0.1.0"
+edition = "2021"
+authors = ["Teddy Pender <teddyjfpender@gmail.com>"]
+
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+rand = "0.8.5"
+rand_distr = "0.4.2"
+serde = { version = "1.0.152", features = ["derive"] }
+reqwest = "0.11.14"
+tokio = { version = "1.25", features = ["full"] }
+serde_json = "1.0.93"
+coingecko = "1.0.1"
+chrono = "0.4.23"
+rayon = "1.6.1"
+itertools = "0.10.5"
