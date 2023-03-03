@@ -12,7 +12,7 @@ This table shows the execution time in milliseconds for the given number of simu
 
 | Number of simulations | Time (ms)       | Outliers             |
 | --------------------- | --------------- | -------------------- |
-| 10                    | 0.352 - 0.363   | 1 (1.00%) high mild  |
+| 10                    | 0.352 - 0.363   | 1 (1.00%) outlier    |
 | 100                   | 0.493 - 0.499   | 8 (8.00%) outliers   |
 | 1000                  | 1.243 - 1.251   | 5 (5.00%) outliers   |
 | 10000                 | 6.798 - 6.833   | 3 (3.00%) outliers   |
