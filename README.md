@@ -14,10 +14,10 @@ This table shows the execution time in milliseconds for the given number of simu
 | --------------------- | --------------- | -------------------- |
 | 10                    | 0.352 - 0.363   | 1 (1.00%) outlier    |
 | 100                   | 0.493 - 0.499   | 8 (8.00%) outliers   |
-| 1000                  | 1.243 - 1.251   | 5 (5.00%) outliers   |
-| 10000                 | 6.798 - 6.833   | 3 (3.00%) outliers   |
-| 100000                | 75.084 - 75.296 | 6 (6.00%) outliers   |
-| 1000000               | 913.64 - 917.72 | 13 (13.00%) outliers |
+| 1,000                 | 1.243 - 1.251   | 5 (5.00%) outliers   |
+| 10,000                | 6.798 - 6.833   | 3 (3.00%) outliers   |
+| 100,000               | 75.084 - 75.296 | 6 (6.00%) outliers   |
+| 1000,000              | 913.64 - 917.72 | 13 (13.00%) outliers |
 
 You can run the benchmarks by using the following command:
 
