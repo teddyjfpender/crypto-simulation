@@ -10,6 +10,8 @@ The results are then printed to the console, showing the three percentile simula
 
 This table shows the execution time in milliseconds for the given number of simulations, along with the percentage of outlier measurements. Outliers are measurements that fall outside of the expected range of values and may indicate issues with the performance test setup or environment.
 
+<div style="text-align:center">
+
 | Number of simulations | Time (ms)       | Outliers             |
 | --------------------- | --------------- | -------------------- |
 | 10                    | 0.352 - 0.363   | 1 (1.00%) outlier    |
@@ -18,6 +20,8 @@ This table shows the execution time in milliseconds for the given number of simu
 | 10,000                | 6.798 - 6.833   | 3 (3.00%) outliers   |
 | 100,000               | 75.084 - 75.296 | 6 (6.00%) outliers   |
 | 1,000,000             | 913.64 - 917.72 | 13 (13.00%) outliers |
+
+</div>
 
 You can run the benchmarks by using the following command:
 
