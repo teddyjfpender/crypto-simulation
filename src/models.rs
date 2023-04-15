@@ -1,4 +1,6 @@
-#[derive(Debug)]
+use serde::{Serialize, Deserialize};
+
+#[derive(Debug, Serialize, Deserialize)]
 pub struct Walk {
     pub walk: Vec<f64>,
 }
@@ -8,7 +10,7 @@ pub struct RandomWalks {
     pub walks: Vec<Walk>,
 }
 
-#[derive(Debug)]
+#[derive(Debug, Serialize, Deserialize)]
 pub struct SimulationResults {
     pub fifth: Walk,
     pub fiftieth: Walk,

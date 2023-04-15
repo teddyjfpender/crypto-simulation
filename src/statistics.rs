@@ -60,7 +60,7 @@ pub mod statistics {
         return walks
     }
 
-    pub fn calculate_simulation_percentiles(walks: &Vec<Walk>, num_steps: usize, num_walks: usize) -> SimulationResults {
+    pub fn calculate_simulation_percentiles(walks: &Vec<Walk>, num_steps: usize, price: f64) -> SimulationResults {
         // Initialise empty vectors to hold the percentile values
         let mut fifth_vec: Walk = Walk { walk: Vec::with_capacity(num_steps) };
         let mut fiftieth_vec: Walk = Walk { walk: Vec::with_capacity(num_steps) };
@@ -71,9 +71,9 @@ pub mod statistics {
             let mut steps_values: Vec<f64> = walks.par_iter().map(|walk| walk.walk[i]).collect();
             steps_values.sort_by(|a, b| a.partial_cmp(b).unwrap());
 
-            fifth_vec.walk.push(percentile(&steps_values, 5.0));
-            fiftieth_vec.walk.push(percentile(&steps_values, 50.0));
-            ninety_fifth_vec.walk.push(percentile(&steps_values, 95.0));
+            fifth_vec.walk.push(percentile(&steps_values, 5.0) * price);
+            fiftieth_vec.walk.push(percentile(&steps_values, 50.0) * price);
+            ninety_fifth_vec.walk.push(percentile(&steps_values, 95.0) * price);
         }
 
         SimulationResults { 

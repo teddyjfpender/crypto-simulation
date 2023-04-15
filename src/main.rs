@@ -38,21 +38,23 @@ async fn main() {
     // create coingecko client
     let client: CoinGeckoClient = CoinGeckoClient::default();
     let from: NaiveDateTime = NaiveDate::from_ymd_opt(2022,11,1).unwrap().and_hms_opt(0,0,0).unwrap();
-    let to: NaiveDateTime = NaiveDate::from_ymd_opt(2023, 3, 2).unwrap().and_hms_opt(0,0,0).unwrap();
+    let to: NaiveDateTime = chrono::Local::now().naive_local();
     let coin_history: MarketChart = client.coin_market_chart_range(&coin, "usd", from, to).await.unwrap();
+    let coin_current_price: f64 = coin_history.prices[coin_history.prices.len() - 1][1];
+    println!("{:?}", coin_current_price);
     let coin_data: Vec<f64> = daily_price_changes(&coin_history);
 
     // calcualte the mean of coin
-    let mean_value = mean(&coin_data).unwrap_or(0.0);
+    let mean_value: f64 = mean(&coin_data).unwrap_or(0.0);
     // calcualte the standard deviation
-    let std_value = standard_deviation(&coin_data).unwrap_or(1.0);
+    let std_value: f64 = standard_deviation(&coin_data).unwrap_or(1.0);
 
     // create a random walk with this new mean and standard deviation
     let new_normal: Normal<f64> = Normal::new(mean_value, std_value).unwrap();
     // parallelise the random walks
     let walks: Vec<Walk> = parallel_walks(simulations, &new_normal, steps, start);
     // calculate percentile of walks
-    let walk_percentile: SimulationResults = calculate_simulation_percentiles(&walks, steps, simulations);
+    let walk_percentile: SimulationResults = calculate_simulation_percentiles(&walks, steps, coin_current_price);
     println!("{:#?}", walk_percentile);
 
 }
