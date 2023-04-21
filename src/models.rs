@@ -16,7 +16,7 @@ pub struct SimulationResults {
     pub fiftieth: Walk,
     pub ninety_fifth: Walk,
 }
-
+/*
 impl Walk {
     pub fn new(walk: Vec<f64>) -> Self {
         Self { walk }
@@ -38,3 +38,4 @@ impl SimulationResults {
         }
     }
 }
+ */

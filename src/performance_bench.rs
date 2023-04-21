@@ -1,6 +1,7 @@
 use criterion::{criterion_group, criterion_main, Criterion};
 mod statistics;
-use statistics::statistics::{parallel_walks, calculate_simulation_percentiles};
+mod simulations;
+use crate::simulations::{parallel_walks, calculate_simulation_percentiles};
 mod models;
 use crate::models::{Walk, SimulationResults};
 use rand_distr::Normal;
